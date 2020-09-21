@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <vector>
 
+#define DEBUG
+
 //  D   -- dot        -- точка          (не Point, чтобы не пересекалось с Plane по первой букве)
 //  V   -- vector     -- вектор
 //  T   -- triangle   -- треугольник
@@ -117,15 +119,17 @@ int main () {
     Dot oz = {0, 0, 1};
     Vector test = Vector(ox) % Vector(oy);
     std::cout << "TEST 1: 1 == " << (test == Vector(oz)) << std::endl;
-    /* ??? (конструктор Vector явный, но при этом ambiguous conversation)
+    // ??? (конструктор Vector явный, но при этом ambiguous conversation)
     Plane p1 = { {0, 0, 0}, Vector(oz) };
     Plane p2 = { {0, 0, 1}, Vector(oz) };
-    */
+    //
+    /*
     Plane p1 = { Vector (0., 0., 0.), Vector(oz) };
     Plane p2 = { Vector (0.0001, 0., 1.), Vector(oz) };
     std::cout << "TEST 2: 0 == " << (p1 == p2) << std::endl;
-    std::cout << "TEST 3: 1 == " << areParallel (p1, p2) << std::endl;
+    std::cout << "TEST 3: 1 == " << AreParallel (p1, p2) << std::endl;
     #endif
+    */
     /*   CODE   */
     unsigned q = 0;
     /* std::cin >> q; */ q = 2;
